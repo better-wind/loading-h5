@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="baidu-site-verification" content="vwQwlikFnE" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="robots" content="all"/>
+    <meta name="author" content=""/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <script>
+        (function(){
+            function RemInit(){
+                var dpr, rem, scale;
+                var docEl = window.document.documentElement;
+                var metaEl = window.document.querySelector('meta[name="viewport"]');
+                var psdWidth = 640/100;
+                dpr = window.devicePixelRatio || 1;
+                rem = docEl.clientWidth * dpr / psdWidth;
+                docEl.style.fontSize = Math.round(rem) +'px'
+                docEl.setAttribute('data-dpr', dpr);
+                scale = 1 / dpr;
+                metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+                window.dpr = dpr;
+                window.rem = rem;
+                window.addEventListener('resize',function(){
+                    rem = docEl.clientWidth * dpr / psdWidth;
+                    docEl.style.fontSize = rem +'px'
+                })
+            }
+            RemInit();
+        })()
+    </script>
+    <!--clip-path不兼容android-->
+    <!--<link rel="stylesheet" href="dist/style/clipload.min.css"/>-->
+    <!--备用方案background-image用背景图代替clip处理图-->
+    <link rel="stylesheet" href="dist/style/borderload.min.css"/>
+</head>
+<body>
+<section class="load-wrap">
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+    <div class="load-item"></div>
+</section>
+<section class="load-text">
+    Loading <span>. . .</span>
+</section>
+</body>
+</html>

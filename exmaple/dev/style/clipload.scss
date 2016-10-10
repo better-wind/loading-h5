@@ -1,0 +1,87 @@
+@import "../../common/css/config";
+@import "../../common/css/reset";
+
+$size:10;
+$width:2rem;
+$time:2s;
+
+body{
+  background-color: rgb(221,240,237);
+}
+.load-wrap{
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 0;
+  .load-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $width;
+    margin: $width * -.5;
+    animation: loadrun linear infinite;
+    -webkit-animation: loadrun linear infinite;
+    &::before,&::after{
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      //border-radius: 50%;
+      clip-path: polygon(0% 0%,100% 0%,100% 100%,50% 50%);
+      -webkit-clip-path: polygon(50% 0%,100% 0%,100% 50%,50% 50%);
+    }
+    &::before{
+      box-shadow: inset 0 0 1px $width * .025 #fff;
+      //inset 0 0 0 $width * .0325 #aaa;
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+    }
+    &::after{
+      box-shadow: inset 0 0 1px $width * .025 #000;
+      //inset 0 0 0 $width * .0325 #555;
+    }
+
+  }
+}
+@for $i from 0 through $size{
+  .load-item:nth-child(#{$i}){
+    width: $width - ($width * .09 * $i);
+    height: $width - ($width * .09 * $i);
+    margin: ($width - ($width * .09 * $i)) * -.5;
+    animation-duration: ($time * $size) / ($size - $i + 1);
+    -webkit-animation-duration: ($time * $size) / ($size - $i + 1);
+  }
+
+}
+@keyframes loadrun {
+  from{ transform: rotate(-45deg);}
+  to{ transform: rotate(315deg);}
+}
+@-webkit-keyframes loadrun  {
+  from{-webkit-transform: rotate(-45deg);}
+  to{-webkit-transform: rotate(315deg); }
+}
+.load-text{
+  width: 5rem;
+  margin:0 auto;
+  text-align: center;
+  line-height: .4rem;
+  font-size: .4rem;
+  font-weight: bold;
+  span{
+    opacity: 1;
+    animation: loadtext 1s linear infinite;
+    -webkit-animation: loadtext 1s ease infinite;
+  }
+}
+@keyframes loadtext {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@-webkit-keyframes loadtext  {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}

@@ -1,0 +1,85 @@
+@import "../../common/css/config";
+@import "../../common/css/reset";
+
+$size:10;
+$width:1rem;
+$time:2s;
+
+body{
+  background-color: rgb(221,240,237);
+}
+.load-wrap{
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 0;
+  .load-item{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: $width;
+    height: $width;
+    transform-origin: 0 100%;
+    -webkit-transform-origin: 0 100%;
+    animation: loadrun linear infinite;
+    -webkit-animation: loadrun linear infinite;
+    &::before,&::after{
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    &::before{
+      border-top:$width * .045 solid #fff;
+      border-right:$width * .045 solid #fff;
+    }
+    &::after{
+      border-top:$width * .045 solid #000;
+      border-right:$width * .045 solid #000;
+      transform: rotate(180deg);
+      transform-origin: 0 100%;
+      -webkit-transform: rotate(180deg);
+      -webkit-transform-origin: 0 100%;
+    }
+  }
+}
+@for $i from 0 through $size{
+  .load-item:nth-child(#{$i}){
+    width: ($width - ($width * .09 * $i));
+    height: ($width - ($width * .09 * $i));
+    animation-duration: ($time * $size) / ($size - $i + 1);
+    -webkit-animation-duration: ($time * $size) / ($size - $i + 1);
+  }
+}
+.load-text{
+  width: 5rem;
+  margin:0 auto;
+  text-align: center;
+  line-height: .4rem;
+  font-size: .4rem;
+  font-weight: bold;
+  span{
+    opacity: 1;
+    animation: loadtext 1s linear infinite;
+    -webkit-animation: loadtext 1s ease infinite;
+  }
+}
+@keyframes loadrun {
+  from{ transform: rotate(-45deg);}
+  to{ transform: rotate(315deg);}
+}
+@-webkit-keyframes loadrun  {
+  from{-webkit-transform: rotate(-45deg);}
+  to{-webkit-transform: rotate(315deg); }
+}
+@keyframes loadtext {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@-webkit-keyframes loadtext  {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}

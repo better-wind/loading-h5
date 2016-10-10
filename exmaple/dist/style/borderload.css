@@ -1,0 +1,281 @@
+@charset "UTF-8";
+html {
+  color: #000;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html * {
+  outline: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  font-family: sans-serif;
+}
+
+/* 边框包含在高度内 */
+section, p, div, ul, li {
+  box-sizing: border-box;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+input, select, textarea {
+  font-size: 100%;
+}
+
+/* 去掉各 Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left;
+}
+
+/* 来自 yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 正常链接 未访问 */
+/* 鼠标悬停 */
+a:hover {
+  text-decoration: underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #ddf0ed;
+}
+
+.load-wrap {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 0;
+}
+
+.load-wrap .load-item {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  transform-origin: 0 100%;
+  -webkit-transform-origin: 0 100%;
+  animation: loadrun linear infinite;
+  -webkit-animation: loadrun linear infinite;
+}
+
+.load-wrap .load-item::before, .load-wrap .load-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.load-wrap .load-item::before {
+  border-top: 0.045rem solid #fff;
+  border-right: 0.045rem solid #fff;
+}
+
+.load-wrap .load-item::after {
+  border-top: 0.045rem solid #000;
+  border-right: 0.045rem solid #000;
+  transform: rotate(180deg);
+  transform-origin: 0 100%;
+  -webkit-transform: rotate(180deg);
+  -webkit-transform-origin: 0 100%;
+}
+
+.load-item:nth-child(0) {
+  width: 1rem;
+  height: 1rem;
+  animation-duration: 1.81818s;
+  -webkit-animation-duration: 1.81818s;
+}
+
+.load-item:nth-child(1) {
+  width: 0.91rem;
+  height: 0.91rem;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+}
+
+.load-item:nth-child(2) {
+  width: 0.82rem;
+  height: 0.82rem;
+  animation-duration: 2.22222s;
+  -webkit-animation-duration: 2.22222s;
+}
+
+.load-item:nth-child(3) {
+  width: 0.73rem;
+  height: 0.73rem;
+  animation-duration: 2.5s;
+  -webkit-animation-duration: 2.5s;
+}
+
+.load-item:nth-child(4) {
+  width: 0.64rem;
+  height: 0.64rem;
+  animation-duration: 2.85714s;
+  -webkit-animation-duration: 2.85714s;
+}
+
+.load-item:nth-child(5) {
+  width: 0.55rem;
+  height: 0.55rem;
+  animation-duration: 3.33333s;
+  -webkit-animation-duration: 3.33333s;
+}
+
+.load-item:nth-child(6) {
+  width: 0.46rem;
+  height: 0.46rem;
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+}
+
+.load-item:nth-child(7) {
+  width: 0.37rem;
+  height: 0.37rem;
+  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+}
+
+.load-item:nth-child(8) {
+  width: 0.28rem;
+  height: 0.28rem;
+  animation-duration: 6.66667s;
+  -webkit-animation-duration: 6.66667s;
+}
+
+.load-item:nth-child(9) {
+  width: 0.19rem;
+  height: 0.19rem;
+  animation-duration: 10s;
+  -webkit-animation-duration: 10s;
+}
+
+.load-item:nth-child(10) {
+  width: 0.1rem;
+  height: 0.1rem;
+  animation-duration: 20s;
+  -webkit-animation-duration: 20s;
+}
+
+.load-text {
+  width: 5rem;
+  margin: 0 auto;
+  text-align: center;
+  line-height: .4rem;
+  font-size: .4rem;
+  font-weight: bold;
+}
+
+.load-text span {
+  opacity: 1;
+  animation: loadtext 1s linear infinite;
+  -webkit-animation: loadtext 1s ease infinite;
+}
+
+@keyframes loadrun {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
+}
+
+@-webkit-keyframes loadrun {
+  from {
+    -webkit-transform: rotate(-45deg);
+  }
+  to {
+    -webkit-transform: rotate(315deg);
+  }
+}
+
+@keyframes loadtext {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes loadtext {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
